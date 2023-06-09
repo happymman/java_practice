@@ -64,5 +64,26 @@ public class ObjectSorting {
         //3-2.comparingInt 정렬 - 내림차순
         Collections.sort(list , Comparator.comparingInt(o->o.getValue()));
         Collections.reverse(list);
+
+
+    }
+
+    //4.상황 : 우선순위 큐 사용필요 -> 객체 Comparable &compareTo 구현
+
+    static class pEdge implements Comparable<pEdge>{
+        int s;
+        int e;
+        int w;
+
+        public pEdge(int s, int e, int w){
+            this.s=s;
+            this.e=e;
+            this.w=w;
+        }
+
+        @Override
+        public int compareTo(pEdge o){
+            return this.w - o.w;
+        }
     }
 }
